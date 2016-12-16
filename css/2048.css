@@ -1,0 +1,177 @@
+body{
+  /*background-color: #080808;*/
+  color:white;
+  overflow: hidden;
+  background-image: url("../img/1.jpg");
+  background-size: cover;
+  perspective:2000px;
+  cursor: url('../img/qq.png'),default;
+  user-select:none;
+  -webkit-user-select:none;
+  -o-user-select:none;
+  -moz-user-select:none;
+}
+#gridPanel {
+  width: 480px;
+  height: 480px;
+  margin: 0 auto;
+  background-color: #bbada0;
+  border-radius: 10px;
+  position: relative;
+  z-index: 500;
+}
+
+.grid, .cell {
+  width: 75px;
+  height: 75px;
+  border-radius: 3px;
+}
+
+.grid {
+  background-color: #ccc0b3;
+  float: left;
+  margin: 12px 0 0 12px;
+}
+
+.cell {
+  position: absolute;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  color: #fff;
+  animation: cellTurn 2000ms linear infinite;
+  -webkit-animation: cellTurn 2000ms linear infinite;
+}
+
+/*cell动画*/
+@keyframes cellTurn {
+  0%{transform: rotateY(0deg)}
+  25%{transform: rotateY(-15deg)}
+  50%{transform: rotateY(0deg)}
+  75%{transform: rotateY(15deg)}
+  100%{transform: rotateY(0deg)}
+}
+@-webkit-keyframes cellTurn {
+  0%{transform: rotateY(0deg)}
+  25%{transform: rotateY(-15deg)}
+  50%{transform: rotateY(0deg)}
+  75%{transform: rotateY(15deg)}
+  100%{transform: rotateY(0deg)}
+}
+/*同一行拥有统一的top*/
+#c00, #c01, #c02, #c03, #c04, #c05 {
+  top: 12px
+}
+
+#c10, #c11, #c12, #c13, #c14, #c15 {
+  top: 99px
+}
+
+#c20, #c21, #c22, #c23, #c24, #c25 {
+  top: 186px
+}
+
+#c30, #c31, #c32, #c33, #c34, #c35 {
+  top: 273px
+}
+
+#c40, #c41, #c42, #c43, #c44, #c45 {
+  top: 360px
+}
+
+#c50, #c51, #c52, #c53, #c54, #c55 {
+  top: 447px
+}
+
+/*同一列拥有统一的left*/
+#c00, #c10, #c20, #c30, #c40, #c50 {
+  left: 12px
+}
+
+#c01, #c11, #c21, #c31, #c41, #c51 {
+  left: 99px
+}
+
+#c02, #c12, #c22, #c32, #c42, #c52 {
+  left: 186px
+}
+
+#c03, #c13, #c23, #c33, #c43, #c53 {
+  left: 273px
+}
+
+#c04, #c14, #c24, #c34, #c44, #c54 {
+  left: 360px
+}
+
+#c05, #c15, #c25, #c35, #c45, #c55 {
+  left: 447px
+}
+
+.n2 {
+  background-color: #e3ffc3
+}
+
+.n4 {
+  background-color: #ecffab
+}
+
+.n8 {
+  background-color: #f2b179
+}
+
+.n16 {
+  background-color: #fc788d
+}
+
+.n32 {
+  background-color: #33b5e5
+}
+
+.n64 {
+  background-color: #f65e3b
+}
+
+.n128 {
+  background-color: #eea846
+}
+
+.n256 {
+  background-color: #fe9985
+}
+
+.n512 {
+  background-color: #9c0
+}
+
+.n1024 {
+  background-color: #f68cbb;
+}
+
+.n2048 {
+  background-color: #09c;
+}
+
+.n4096 {
+  background-color: #bca3f4;
+}
+
+.n8192 {
+  background-color: #93c;
+}
+.n16384 {
+  background-color: #9c0;
+}
+
+.n2, .n4 {
+  color: #776e65
+}
+
+.n1024, .n2048, .n4096, .n8192 {
+  font-size: 25px
+}
+div[class*=n][class~=cell]:hover{
+  color:white;
+  background-color: #122b40;
+}
+

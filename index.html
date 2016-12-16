@@ -1,68 +1,95 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <title>何虎的毕业设计</title>
-  <meta charset="utf-8" />
-	 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
-  <link rel="stylesheet" href="stylesheets/2048.css"/>
-	 <script src="javascripts/jquery-2.1.4.min.js"></script>
-	 <script src="javascripts/tiger.js"></script>
-  <script src="javascripts/2048.js"></script>
- </head>
+<head>
+  <title>tiger</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/login.css"/>
+  <link rel="stylesheet" href="css/2048.css"/>
+  <link rel="stylesheet" href="css/jquery-ui.css"/>
+</head>
 
- <body>
-  <p class="score_top">得分:<span id="score"></span></p>
-  <div id="gridPanel">
-	<!--背景格: 4x4-->
-	<div id="g00" class="grid"></div>
-	<div id="g01" class="grid"></div>
-	<div id="g02" class="grid"></div>
-	<div id="g03" class="grid"></div>
+<body>
+<div class="login">
+  <div class="container-fluid">
+    <h1 class="title">请自定义游戏规格</h1>
+    <div class="main">
+      <form class="form-horizontal">
 
-	<div id="g10" class="grid"></div>
-	<div id="g11" class="grid"></div>
-	<div id="g12" class="grid"></div>
-	<div id="g13" class="grid"></div>
+        <div class="form-group">
+          <label for="row" class="col-sm-3 control-label">行数</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" id="row" placeholder="请输入行数">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"></label>
+          <div class="col-sm-9">
+            <p class="form-control-static rowWarn"></p>
+          </div>
+        </div>
 
-	<div id="g20" class="grid"></div>
-	<div id="g21" class="grid"></div>
-	<div id="g22" class="grid"></div>
-	<div id="g23" class="grid"></div>
-
-	<div id="g30" class="grid"></div>
-	<div id="g31" class="grid"></div>
-	<div id="g32" class="grid"></div>
-	<div id="g33" class="grid"></div>
-
-	<!--前景格：4x4-->
-	<div id="c00" class="cell"></div>
-	<div id="c01" class="cell"></div>
-	<div id="c02" class="cell"></div>
-	<div id="c03" class="cell"></div>
-	
-	<div id="c10" class="cell"></div>
-	<div id="c11" class="cell"></div>
-	<div id="c12" class="cell"></div>
-	<div id="c13" class="cell"></div>
-
-	<div id="c20" class="cell"></div>
-	<div id="c21" class="cell"></div>
-	<div id="c22" class="cell"></div>
-	<div id="c23" class="cell"></div>
-
-	<div id="c30" class="cell"></div>
-	<div id="c31" class="cell"></div>
-	<div id="c32" class="cell"></div>
-	<div id="c33" class="cell"></div>
+        <div class="form-group">
+          <label for="col" class="col-sm-3 control-label">列数</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" id="col" placeholder="请输入列数">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"></label>
+          <div class="col-sm-9">
+            <p class="form-control-static colWarn"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="sure" class="control-label"></label>
+          <div class="col-sm-12">
+            <input type="button" class="btn_reset btn-default btn btn-success" id="sure" value="确认">
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-  <!--GameOver界面-->
-  <div id="gameover">
-	<div><!--灰色半透明背景--></div>
-	<p><!--前景提示框-->
-		Game Over!<br>
-		得分:<span id="finalScore"></span><br>
-		<a class="btn" id="restart" onclick="game.start()">再来一次</a>
-	</p>
+</div>
+
+<p>得分:<span id="score"></span></p>
+<!--游戏主界面-->
+<div id="gridPanel">
+
+</div>
+<!--排行榜-->
+<div class="rank">
+  <div class="rankTitle">点击查看排行榜</div>
+  <div class="rankMain">
+      <table class="table table-bordered">
+        <thead>
+          <tr><th>规格</th><th>最高分</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2x2</td><td class="twoScore">0</td></tr>
+          <tr><td>3x3</td><td class="threeScore">0</td></tr>
+          <tr><td>4x4</td><td class="fourScore">0</td></tr>
+          <tr><td>5x5</td><td class="fiveScore">0</td></tr>
+          <tr><td>6x6</td><td class="sixScore">0</td></tr>
+          <tr><td colspan="2">只有行数与列数相等才会纳入分数排行！</td></tr>
+        </tbody>
+      </table>
   </div>
- </body>
+</div>
+<!--GameOver界面-->
+<div id="gameover">
+  <div><!--灰色半透明背景--></div>
+  <p><!--前景提示框-->
+    Game Over!<br>
+    得分:<span id="finalScore"></span><br>
+    <!--<a class="btn" id="restart" onclick="game.start()">再来一次</a>-->
+    <a class="btn" id="restart" onclick="window.location.reload()||window.history.go(0)">再来一次</a>
+  </p>
+</div>
+<canvas id="canvas" style="position: absolute;left: 0;top: 0;z-index: 1;"></canvas>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/tiger.js"></script>
+<script src="js/data.js"></script>
+</body>
 </html>
