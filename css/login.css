@@ -1,4 +1,4 @@
-/*loginÑùÊ½*/
+/*loginæ ·å¼*/
 div.login{
   width: 100%;
   background-color: black;
@@ -8,6 +8,7 @@ div.login{
   left: 0;
   top: 0;
   z-index: 1000;
+  
 }
 .title{
   width: 100%;
@@ -34,7 +35,7 @@ div.col-sm-9>p{
   color:red;
   font-size: 20px;
 }
-/*µÃ·ÖÑùÊ½*/
+/*å¾—åˆ†æ ·å¼*/
 p {
   width: 480px;
   margin: 0 auto;
@@ -75,7 +76,7 @@ p {
 
   }
 }
-/*ÉèÖÃÓÎÏ·½áÊø½çÃæ*/
+/*è®¾ç½®æ¸¸æˆç»“æŸç•Œé¢*/
 #gameover {
   width: 100%;
   height: 100%;
@@ -119,7 +120,7 @@ p {
   cursor: pointer;
   margin-bottom: 5px;
 }
-/*ÅÅĞĞ°ñÑùÊ½*/
+/*æ’è¡Œæ¦œæ ·å¼*/
 div.rank{
   background-color: black;
   color: white;
